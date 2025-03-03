@@ -80,6 +80,22 @@ select *from FirstClass;
 select distinct *from FirstClass;
 
 /*Display unique student IDs.*/
-select distinct Student_Id from FirstClass;
+select distinct Student_Id from FirstClass select*from FirstClass;
 
+/*Adding new colunm called SubjectCode to the FirstClass Table*/
+Alter table FirstClass add SubjectCode int;
+/*Updating FirstClass table by adding subject Codes to the subjectcode column*/
+update FirstClass set SubjectCode=02 where Subject_Taken='ICT'
+update FirstClass set SubjectCode=19 where Subject_Taken='Biology'
+update FirstClass set SubjectCode=445 where Subject_Taken='Mathematics'
+update FirstClass set SubjectCode=103 where Subject_Taken='Business Studies'
+update FirstClass set SubjectCode=4 where Subject_Taken='Chemistry'
+
+
+
+
+/*Displaying the subject codes from the subjects table and StudentId and Surname from the FirstClass table where the subject codes match*/
+select Subjects.Subject_Code, FirstClass.Student_Id, FirstClass.SurName
+from Subjects, FirstClass
+where Subjects.Subject_code = FirstClass.SubjectCode;
 
