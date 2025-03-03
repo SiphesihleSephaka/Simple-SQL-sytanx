@@ -46,3 +46,40 @@ Values
 (9007,'Purity','Ndlovu','Business Studies',21,56,77,'D');
 
 
+/* Display the student ID, first name and surname for all students who got Distinctions.*/
+select Student_Id, First_Name,Surname,Grade from FirstClass where Grade ='D';
+
+
+/*Display the StudentId, name and surname for all students who take ICT ordering them by surname in ascending order.  */
+select Student_Id, First_Name,Surname from FirstClass where Subject_Taken='ICT' ORDER BY Student_Id ASC;
+/*DESCENDING ORDER*/
+select Student_Id, First_Name,Surname from FirstClass where Subject_Taken='ICT' ORDER BY Student_Id DESC;
+
+
+/*Correct the surname of a student with ID number 2009 to Mandilake. */
+Update FirstClass set SurName='Mandilake' where Student_Id=2009;
+
+/*Remove student with ID number 5009 or surname Mandilake.*/
+delete from FirstClass where Student_Id=5009 or SurName='Mandilake';
+
+/*Increase the coursework marks for all students taking ICT by 10.*/
+update FirstClass set Course_Work = Course_Work+10 where Subject_Taken='ICT';
+
+/*Add three new students whose student IDs are 5009, 6009, 3009 respectively. They all take ICT. Their coursework marks are 20,18, and 17 respectively. Their Exam marks are 40, 45, and 60 respectively*/
+insert into FirstClass (Student_Id,First_Name,Surname,Subject_Taken,Course_Work,Exam_Mark)
+values 
+(5009,'John','Smith','ICT',20,40),
+(6009,'Jane','Smith','ICT',18,45),
+(3009,'Jmaie','Smith','ICT',17,60);
+
+/*Display all records*/
+select *from FirstClass;
+
+
+/*Display all unique records.*/
+select distinct *from FirstClass;
+
+/*Display unique student IDs.*/
+select distinct Student_Id from FirstClass;
+
+
